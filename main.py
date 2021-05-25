@@ -4,7 +4,7 @@ import minimax
 
 
 def main():
-    """[summary]"""
+    """[drawing game window]"""
     minimax_algorithm = minimax.MiniMax()
     game = tictactoe.Game()
 
@@ -15,7 +15,7 @@ def main():
     game_window.fill((0, 0, 0))
     pygame.display.set_caption("Tic Tac Toe")
     game_font = pygame.font.SysFont("comicsans", 60)
-
+    
     game_board = game.reset_board()
     game_grid = game.draw_grid(game_window)
 

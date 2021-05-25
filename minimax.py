@@ -1,6 +1,6 @@
 class MiniMax:
     """
-    class containing implementation of MiniMax Alogrithm
+    class containing implementation of MiniMax Alogrithm.
     """
 
     def optimal_move(self, board):

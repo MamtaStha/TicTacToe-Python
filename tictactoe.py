@@ -2,6 +2,8 @@ import pygame
 
 
 class Game:
+
+    #drawing 3x3 matrix for our game board.
     def draw_grid(self, window):
         """[summary]
 
@@ -24,6 +26,7 @@ class Game:
         return collision_grid
 
     def reset_board(self):
+        #reset the board. _ is an instant variable created by python which is not used latter in any part of code.
         """[summary]
 
         Returns:
@@ -32,6 +35,7 @@ class Game:
         return [[0 for _ in range(3)] for _ in range(3)]
 
     def reset_locked_positions(self):
+        #resets all the locked position. Checks through each matrix value if True .It resets the locked position.
         """[summary]
 
         Returns:
@@ -40,6 +44,7 @@ class Game:
         return [True for _ in range(3) for _ in range(3)]
 
     def check_all_positions(self, board):
+        #loop through all the matrix value to check if the position value is True or Fals
         """[summary]
 
         Args:
@@ -57,6 +62,7 @@ class Game:
     def turn_text(
         self, window, board, font, player, game_winner, color=(255, 255, 255)
     ):
+        #displays the text indiaction the player
         """[summary]
 
         Args:
@@ -89,6 +95,8 @@ class Game:
         pygame.display.update()
 
     def reset_text(self, window, font, color=(255, 255, 255)):
+
+        #reset the text when the new game is available for new game.
         """[summary]
 
         Args:
@@ -105,6 +113,7 @@ class Game:
         window.blit(label_bottom, (sx, sy + 50))
 
     def draw_winning_line(self, window, grid, winning_line, sign):
+        #Winning player will be indicated with different color. 
         """[summary]
 
         Args:
@@ -122,6 +131,7 @@ class Game:
         pygame.display.update()
 
     def win_check(self, board, player):
+        #befeor next move program is is checking if any of the player have won the game.
         """[summary]
 
         Args:
@@ -177,6 +187,7 @@ class Game:
         return False, [-1, -1, -1]
 
     def update_board(self, board, locked_positions, update_field, value):
+        #updating the value of an empyty feild.
         """[summary]
 
         Args:
@@ -199,6 +210,7 @@ class Game:
             current_field += 1
 
     def draw_X(self, window, field, color=(0, 0, 0)):
+        #desiginig X
         """[summary]
 
         Args:
@@ -219,6 +231,7 @@ class Game:
         pygame.display.update()
 
     def draw_O(self, window, field, color=(0, 0, 0)):
+        #designing O
         """[summary]
 
         Args:
@@ -235,6 +248,7 @@ class Game:
         pygame.display.update()
 
     def statistic(self, window, record, color=(255, 255, 255)):
+        #creating display for statitcs
         """[summary]
 
         Args:
@@ -260,6 +274,7 @@ class Game:
     def draw_player(
         self, window, grid, board, locked_positions, mouse_position, draw_object
     ):
+    #draw x 
         """[summary]
 
         Args:
@@ -283,6 +298,8 @@ class Game:
         return draw_object
 
     def draw_ai(self, window, grid, x, y, AI_object, board, locked_positions):
+
+        #draw O
         """
 
         Args:
