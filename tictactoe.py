@@ -258,7 +258,7 @@ class Game:
         pygame.display.update()
 
     def draw_player(self, window, grid, board, locked_positions, mouse_position, draw_object):
-        """Draws cross or circle according player who has made the move
+        """Draws cross move of the player
 
         Args:
             window (pygame object): game screen where figures for game is drawn
