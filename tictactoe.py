@@ -13,6 +13,7 @@ class Game:
         Returns:
             [type]: [description]
         """
+        print(type(window))
         color = (255, 255, 255)
         grid = [
             (175 * y + 25, 175 * x + 25, 160, 160) for x in range(3) for y in range(3)
@@ -260,7 +261,7 @@ class Game:
         pygame.display.update()
 
     def draw_player(
-        self, window, grid, board, locked_positions, mouse_position, draw_object
+        self, window, grid, board, locked_positions, mouse_position, current_object
     ):
         """[summary]
 
@@ -279,12 +280,12 @@ class Game:
         for field, open_position in zip(grid, locked_positions):
             if field.collidepoint(mouse_position) and open_position:
                 self.draw_X(window, field)
-                draw_object = "circle"
+                current_object = "circle"
                 self.update_board(board, locked_positions, query_field, 1)
             query_field += 1
-        return draw_object
+        return current_object
 
-    def draw_ai(self, window, grid, x, y, AI_object, board, locked_positions):
+    def draw_ai(self, window, grid, x, y, current_object, board, locked_positions):
         """
 
         Args:
@@ -302,6 +303,6 @@ class Game:
         index = 3 * x + y
         field = grid[index]
         self.draw_O(window, field)
-        next_object = "cross"
+        current_object = "cross"
         self.update_board(board, locked_positions, index, 2)
-        return next_object
+        return current_object
