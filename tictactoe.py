@@ -2,6 +2,8 @@ import pygame
 
 
 class Game:
+    """[summary]"""
+
     def draw_grid(self, window):
         """[summary]
 
