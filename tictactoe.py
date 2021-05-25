@@ -3,6 +3,14 @@ import pygame
 
 class Game:
     def draw_grid(self, window):
+        """[summary]
+
+        Args:
+            window ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
         color = (255, 255, 255)
         grid = [
             (175 * y + 25, 175 * x + 25, 160, 160) for x in range(3) for y in range(3)
@@ -16,12 +24,30 @@ class Game:
         return collision_grid
 
     def reset_board(self):
+        """[summary]
+
+        Returns:
+            [type]: [description]
+        """
         return [[0 for _ in range(3)] for _ in range(3)]
 
     def reset_locked_positions(self):
+        """[summary]
+
+        Returns:
+            [type]: [description]
+        """
         return [True for _ in range(3) for _ in range(3)]
 
     def check_all_positions(self, board):
+        """[summary]
+
+        Args:
+            board ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
         for row in board:
             for element in row:
                 if element == 0:
@@ -31,6 +57,16 @@ class Game:
     def turn_text(
         self, window, board, font, player, game_winner, color=(255, 255, 255)
     ):
+        """[summary]
+
+        Args:
+            window ([type]): [description]
+            board ([type]): [description]
+            font ([type]): [description]
+            player ([type]): [description]
+            game_winner ([type]): [description]
+            color (tuple, optional): [description]. Defaults to (255, 255, 255).
+        """
         sx = 435 // 2 - 35
         sy = 590
         pygame.draw.rect(window, (0, 0, 0), (sx, sy, 300, 50))
@@ -53,6 +89,13 @@ class Game:
         pygame.display.update()
 
     def reset_text(self, window, font, color=(255, 255, 255)):
+        """[summary]
+
+        Args:
+            window ([type]): [description]
+            font ([type]): [description]
+            color (tuple, optional): [description]. Defaults to (255, 255, 255).
+        """
         sx = 575
         sy = 450
         label_top = font.render("Press SPACE", True, color)
@@ -62,6 +105,14 @@ class Game:
         window.blit(label_bottom, (sx, sy + 50))
 
     def draw_winning_line(self, window, grid, winning_line, sign):
+        """[summary]
+
+        Args:
+            window ([type]): [description]
+            grid ([type]): [description]
+            winning_line ([type]): [description]
+            sign ([type]): [description]
+        """
         for i in range(9):
             if i in winning_line:
                 if sign == "cross":
@@ -71,6 +122,15 @@ class Game:
         pygame.display.update()
 
     def win_check(self, board, player):
+        """[summary]
+
+        Args:
+            board ([type]): [description]
+            player ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
         # Check rows
         query_field = 0
         for row in range(3):
@@ -117,6 +177,14 @@ class Game:
         return False, [-1, -1, -1]
 
     def update_board(self, board, locked_positions, update_field, value):
+        """[summary]
+
+        Args:
+            board ([type]): [description]
+            locked_positions ([type]): [description]
+            update_field ([type]): [description]
+            value ([type]): [description]
+        """
         current_field = 0
         for row in range(3):
             for field in range(3):
@@ -131,6 +199,13 @@ class Game:
             current_field += 1
 
     def draw_X(self, window, field, color=(0, 0, 0)):
+        """[summary]
+
+        Args:
+            window ([type]): [description]
+            field ([type]): [description]
+            color (tuple, optional): [description]. Defaults to (0, 0, 0).
+        """
         x_start, y_start = field[0], field[1]
         x_start += 15
         y_start += 15
@@ -144,6 +219,13 @@ class Game:
         pygame.display.update()
 
     def draw_O(self, window, field, color=(0, 0, 0)):
+        """[summary]
+
+        Args:
+            window ([type]): [description]
+            field ([type]): [description]
+            color (tuple, optional): [description]. Defaults to (0, 0, 0).
+        """
         x_center, y_center = field[0], field[1]
         x_center += 80
         y_center += 80
@@ -153,6 +235,13 @@ class Game:
         pygame.display.update()
 
     def statistic(self, window, record, color=(255, 255, 255)):
+        """[summary]
+
+        Args:
+            window ([type]): [description]
+            record ([type]): [description]
+            color (tuple, optional): [description]. Defaults to (255, 255, 255).
+        """
         font = pygame.font.SysFont("comicsans", 40, italic=True)
         sx = 550
         sy = 25
@@ -171,6 +260,19 @@ class Game:
     def draw_player(
         self, window, grid, board, locked_positions, mouse_position, draw_object
     ):
+        """[summary]
+
+        Args:
+            window ([type]): [description]
+            grid ([type]): [description]
+            board ([type]): [description]
+            locked_positions ([type]): [description]
+            mouse_position ([type]): [description]
+            draw_object ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
         query_field = 0
         for field, open_position in zip(grid, locked_positions):
             if field.collidepoint(mouse_position) and open_position:

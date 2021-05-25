@@ -4,6 +4,7 @@ import minimax
 
 
 def main():
+    """[summary]"""
     minimax_algorithm = minimax.MiniMax()
     game = tictactoe.Game()
 
