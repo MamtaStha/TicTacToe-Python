@@ -76,7 +76,7 @@ class MiniMax:
         Returns:
             Int: score according to who wins or draw
         """
-        scores = [0, -1, 1]
+        scores = [0, -1, 1]  # O for draw, -1 if x wins, 1 if o wins
         # Horizontal
         for i in range(3):
             if board[i][0] != 0 and board[i][0] == board[i][1] == board[i][2]:
