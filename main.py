@@ -12,7 +12,7 @@ def main():
 
     window_width, window_height = 900, 685
     game_window = pygame.display.set_mode((window_width, window_height))
-    game_window.fill((0, 0, 0))
+    game_window.fill((61, 15, 44))
     pygame.display.set_caption("Tic Tac Toe")
     game_font = pygame.font.SysFont("comicsans", 60)
 
