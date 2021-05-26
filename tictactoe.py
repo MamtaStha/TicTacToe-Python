@@ -2,7 +2,7 @@ import pygame
 
 class Game:
     def draw_grid(self, window):
-        """ draws the nine rectangle that create 3*3 game board and returns the pygame rectangle object
+        """ draws the nine rectangle that create 3*3 game board and returns the list of python rectangle objects
 
         Args:
             window (pygame object): game screen where figures for game is drawn
