@@ -20,14 +20,14 @@ class MiniMax:
             for j in range(3):
                 if board[i][j] == 0:
                     board[i][j] = 2
-                    score = self.minimax(board, 0, False)
+                    score = self.minimax(board, False)
                     board[i][j] = 0
                     if score > best_score:
                         best_score = score
                         best_move = [i, j]
         return best_move
 
-    def minimax(self, board, depth, is_maximizing):
+    def minimax(self, board, is_maximizing):
         """
         returns score at each node
 
@@ -50,7 +50,7 @@ class MiniMax:
                     # Check for available spot
                     if board[i][j] == 0:
                         board[i][j] = 2
-                        score = self.minimax(board, depth + 1, False)
+                        score = self.minimax(board, False)
                         board[i][j] = 0
                         best_score = max(score, best_score)
             return best_score
@@ -61,7 +61,7 @@ class MiniMax:
                     # Check for available spot
                     if board[i][j] == 0:
                         board[i][j] = 1
-                        score = self.minimax(board, depth + 1, True)
+                        score = self.minimax(board, True)
                         board[i][j] = 0
                         best_score = min(score, best_score)
             return best_score
