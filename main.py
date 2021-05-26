@@ -4,7 +4,7 @@ import minimax
 
 
 def main():
-    """[drawing game window]"""
+    """[drawing game window and calling the functions]"""
     minimax_algorithm = minimax.MiniMax()
     game = tictactoe.Game()
 
@@ -113,6 +113,6 @@ def main():
         pygame.display.update()
     pygame.quit()
 
-
+#the progam will call the functions only when the source code having main is running.
 if __name__ == "__main__":
     main()
