@@ -92,13 +92,13 @@ class MiniMax:
             return scores[board[2][0]]
 
         # Check for draw
-        open_spots = 0
+        empty_spots = 0
         for row in board:
             for element in row:
                 if element == 0:
-                    open_spots += 1
+                    empty_spots += 1
 
-        if open_spots == 0:
+        if empty_spots == 0:
             return 0
         else:
             return -2
