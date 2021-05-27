@@ -8,5 +8,7 @@ Running Code
 
 
 minimax.py -> This file contains implementation of minimax algorithm. 
+
 tictactoe.py -> This file contains code for making all gui used in this project.
+
 main.py -> This file calls all the function of minimax.py and tictactoe.py to run the project.
